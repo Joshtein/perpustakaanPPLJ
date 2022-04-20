@@ -1,4 +1,3 @@
-const { book } = require("../models");
 const db = require("../models");
 const Klien = db.klien;
 const Library = db.library;
