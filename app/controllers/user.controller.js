@@ -148,15 +148,19 @@ exports.getRiwayat = async (req, res) => {
 
 exports.perpanjangPeminjaman = async (req, res) => {
   try {
-    await Sirkulasi.update({
-      durasi: req.body.durasi,
-      tanggalPengembalian: req.body.tanggalPengembalian
-    },{
-      where:{
-        id: req.body.idPeminjaman
-      }
-    });
-    res.status(200).send({ message: "Book borrowing extended successfully!" });
+    if(req.body.durasi <= 28){
+      await Sirkulasi.update({
+        durasi: req.body.durasi,
+        tanggalPengembalian: req.body.tanggalPengembalian
+      },{
+        where:{
+          id: req.body.idPeminjaman
+        }
+      });
+      res.status(200).send({ message: "Book borrowing extended successfully!" });
+    }else{
+      res.status(200).send({ message: "Extend book borrowing failed!" });
+    }
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
