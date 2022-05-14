@@ -30,13 +30,4 @@ db.sirkulasi = require("./sirkulasi.model.js")(sequelize, Sequelize);
 db.pengiriman = require("./pengiriman.model.js")(sequelize, Sequelize);
 db.klien = require("./klien.model.js")(sequelize, Sequelize);
 
-db.library.belongsToMany(db.book, {
-  through: "library_book",
-  foreignKey: "isbn"
-});
-db.book.belongsToMany(db.library, {
-  through: "library_book",
-  foreignKey: "isbn"
-});
-
 module.exports = db;
