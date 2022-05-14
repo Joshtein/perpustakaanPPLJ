@@ -1,7 +1,7 @@
 {
-  "name": "node-js-express-login-example",
+  "name": "perpustakaan-online",
   "version": "1.0.0",
-  "description": "Node.js Express Login and Registration example",
+  "description": "Aplikasi Perpustakaan Online Tugas Besar PPLJ",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
