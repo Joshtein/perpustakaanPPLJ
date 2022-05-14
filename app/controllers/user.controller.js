@@ -5,7 +5,7 @@ const Sirkulasi = db.sirkulasi;
 const Pengiriman = db.pengiriman;
 const Book = db.book;
 
-//for testing purposes only
+// for testing purposes only
 exports.newBookLibrary = async (req, res) => {
   try {
     await Library.create({
@@ -23,7 +23,7 @@ exports.newBookLibrary = async (req, res) => {
   }
 };
 
-//for testing purposes only
+// for testing purposes only
 exports.newBook = async (req, res) => {
   try {
     await Book.create({

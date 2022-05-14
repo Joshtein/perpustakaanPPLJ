@@ -1,10 +1,8 @@
 const db = require("../models");
-// const ROLES = db.ROLES;
 const Klien = db.klien;
 
 checkDuplicateEmail = async (req, res, next) => {
   try {
-
     // Email
     let klien = await Klien.findOne({
       where: {
@@ -17,7 +15,6 @@ checkDuplicateEmail = async (req, res, next) => {
         message: "Failed! Email is already in use!"
       });
     }
-
     next();
   } catch (error) {
     return res.status(500).send({

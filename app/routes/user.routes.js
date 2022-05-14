@@ -10,9 +10,9 @@ module.exports = function(app) {
     next();
   });
 
-  app.post("/api/library/newbook", controller.newBookLibrary);
+  app.post("/api/library/newbook", controller.newBookLibrary); // for testing purposes only
 
-  app.post("/api/book/newbook", controller.newBook);
+  app.post("/api/book/newbook", controller.newBook); // for testing purposes only
 
   app.get(
     "/api/library/getlibrary",
@@ -49,16 +49,4 @@ module.exports = function(app) {
     [authJwt.verifyToken],
     controller.perpanjangPeminjaman
   );
-
-  // app.get(
-  //   "/api/test/mod",
-  //   [authJwt.verifyToken, authJwt.isModerator],
-  //   controller.moderatorBoard
-  // );
-
-  // app.get(
-  //   "/api/test/admin",
-  //   [authJwt.verifyToken, authJwt.isAdmin],
-  //   controller.adminBoard
-  // );
 };

@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 exports.signup = async (req, res) => {
-  // Save User to Database
   try {
     await Klien.create({
       email: req.body.email,
@@ -29,28 +28,22 @@ exports.signin = async (req, res) => {
         email: req.body.email,
       }
     });
-
     if (!klien) {
       return res.status(404).send({ message: "User Not found." });
     }
-
     const passwordIsValid = bcrypt.compareSync(
       req.body.password,
       klien.password
     );
-
     if (!passwordIsValid) {
       return res.status(401).send({
         message: "Invalid Password!",
       });
     }
-
     const token = jwt.sign({ id: klien.id }, config.secret, {
       expiresIn: 86400, // 24 hours
     });
-
     req.session.token = token;
-
     return res.status(200).send({
       id: klien.id,
       email: klien.email,
